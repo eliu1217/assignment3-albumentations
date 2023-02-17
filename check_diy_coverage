@@ -16,8 +16,9 @@ fi;
 echo "Running tests. This may take a few minutes..."
 pytest > /dev/null
 
-echo "Done!\n"
-echo "Branches taken:"
+echo "Done!"
+echo ""
+echo "$(tput bold)Branches taken:$(tput sgr0)"
 
 # Print one line for each time a branch was taken,
 # but sort them so that identical lines go next to
