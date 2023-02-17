@@ -7,6 +7,7 @@ import cv2
 import numpy as np
 import skimage
 
+from albumentations.diy_coverage import write_coverage
 from albumentations import random_utils
 from albumentations.augmentations.utils import (
     MAX_VALUES_BY_DTYPE,
@@ -315,42 +316,55 @@ def equalize(img, mask=None, mode="cv", by_channels=True):
         numpy.ndarray: Equalized image.
 
     """
+    write_coverage("equalize", "00.main_control_flow")
     if img.dtype != np.uint8:
+        write_coverage("equalize", "01.img_data_type_not_uint8")
         raise TypeError("Image must have uint8 channel type")
 
     modes = ["cv", "pil"]
 
     if mode not in modes:
+        write_coverage("equalize", "02.mode_not_in_modes")
         raise ValueError("Unsupported equalization mode. Supports: {}. " "Got: {}".format(modes, mode))
     if mask is not None:
+        write_coverage("equalize", "03.mask_not_none")
         if is_rgb_image(mask) and is_grayscale_image(img):
+            write_coverage("equalize", "04-05.mask_rgb_but_img_greyscale")
             raise ValueError("Wrong mask shape. Image shape: {}. " "Mask shape: {}".format(img.shape, mask.shape))
         if not by_channels and not is_grayscale_image(mask):
+            write_coverage("equalize", "06-07.equalize_non_greyscale_channels_together")
             raise ValueError(
                 "When by_channels=False only 1-channel mask supports. " "Mask shape: {}".format(mask.shape)
             )
 
     if mode == "pil":
+        write_coverage("equalize", "08.mode_is_pil")
         function = _equalize_pil
     else:
         function = _equalize_cv
 
     if mask is not None:
+        write_coverage("equalize", "09.mask_not_none")
         mask = mask.astype(np.uint8)
 
     if is_grayscale_image(img):
+        write_coverage("equalize", "10.img_greyscale")
         return function(img, mask)
 
     if not by_channels:
+        write_coverage("equalize", "11.eq_channels_together")
         result_img = cv2.cvtColor(img, cv2.COLOR_RGB2YCrCb)
         result_img[..., 0] = function(result_img[..., 0], mask)
         return cv2.cvtColor(result_img, cv2.COLOR_YCrCb2RGB)
 
     result_img = np.empty_like(img)
     for i in range(3):
+        write_coverage("equalize", "12.loop_thrice")
         if mask is None:
+            write_coverage("equalize", "13.mask_is_none")
             _mask = None
         elif is_grayscale_image(mask):
+            write_coverage("equalize", "14.mask_is_greyscale_img")
             _mask = mask
         else:
             _mask = mask[..., i]
