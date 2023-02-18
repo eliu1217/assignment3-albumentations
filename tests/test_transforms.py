@@ -684,6 +684,11 @@ def test_grid_dropout_params(ratio, holes_number_x, holes_number_y, unit_size_mi
     elif holes_number_x and holes_number_y:
         assert (holes[0][2] - holes[0][0]) == max(1, int(ratio * 320 // holes_number_x))
         assert (holes[0][3] - holes[0][1]) == max(1, int(ratio * 256 // holes_number_y))
+    # with invalid unit sizes (in this case, max < min)
+    with pytest.raises(ValueError, match="at least 2 pixels"):
+        img = np.random.randint(0, 256, [256, 320], np.uint8)
+        aug = A.GridDropout(p=1, mask_fill_value=0, unit_size_min=5, unit_size_max=3)
+        aug.get_params_dependent_on_targets({"image": img})
 
 
 def test_gauss_noise_incorrect_var_limit_type():
