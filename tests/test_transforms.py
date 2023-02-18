@@ -689,6 +689,11 @@ def test_grid_dropout_params(ratio, holes_number_x, holes_number_y, unit_size_mi
         img = np.random.randint(0, 256, [256, 320], np.uint8)
         aug = A.GridDropout(p=1, mask_fill_value=0, unit_size_min=5, unit_size_max=3)
         aug.get_params_dependent_on_targets({"image": img})
+    # with invalid unit sizes (in this case, max is too large)
+    with pytest.raises(ValueError, match="size limits must be within the shortest image edge"):
+        img = np.random.randint(0, 256, [256, 320], np.uint8)
+        aug = A.GridDropout(p=1, mask_fill_value=0, unit_size_min=5, unit_size_max=3000)
+        aug.get_params_dependent_on_targets({"image": img})
 
 
 def test_gauss_noise_incorrect_var_limit_type():
