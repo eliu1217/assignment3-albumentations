@@ -214,17 +214,23 @@ def posterize(img, bits):
         numpy.ndarray: Image with reduced color channels.
 
     """
+    write_coverage("posterize", "00:main_control_flow")
     bits = np.uint8(bits)
 
     if img.dtype != np.uint8:
+        write_coverage("posterize", "01:wrong_type")
         raise TypeError("Image must have uint8 channel type")
     if np.any((bits < 0) | (bits > 8)):
+        write_coverage("posterize", "02:bits_out_of_bounds")
         raise ValueError("bits must be in range [0, 8]")
 
     if not bits.shape or len(bits) == 1:
+        write_coverage("posterize", "03-04:no_shape_or_length_one")
         if bits == 0:
+            write_coverage("posterize", "05:bit_is_zero")
             return np.zeros_like(img)
         if bits == 8:
+            write_coverage("posterize", "06:bit_is_eight")
             return img.copy()
 
         lut = np.arange(0, 256, dtype=np.uint8)
@@ -234,13 +240,17 @@ def posterize(img, bits):
         return cv2.LUT(img, lut)
 
     if not is_rgb_image(img):
+        write_coverage("posterize", "07:not_rgb_image")
         raise TypeError("If bits is iterable image must be RGB")
 
     result_img = np.empty_like(img)
     for i, channel_bits in enumerate(bits):
+        write_coverage("posterize", "08:for_loop")
         if channel_bits == 0:
+            write_coverage("posterize", "09:channel_bits_is_zero")
             result_img[..., i] = np.zeros_like(img[..., i])
         elif channel_bits == 8:
+            write_coverage("posterize", "10:channel_bits_is_eight")
             result_img[..., i] = img[..., i].copy()
         else:
             lut = np.arange(0, 256, dtype=np.uint8)
