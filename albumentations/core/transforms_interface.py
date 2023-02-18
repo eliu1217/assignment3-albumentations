@@ -103,26 +103,36 @@ class BasicTransform(Serializable):
         self.applied_in_replay = False
 
     def __call__(self, *args, force_apply: bool = False, **kwargs) -> Dict[str, Any]:
+        write_coverage("BasicTransform.__call__", "00:main_control_flow")
         if args:
+            write_coverage("BasicTransform.__call__", "01:unnamed_arguments")
             raise KeyError("You have to pass data to augmentations as named arguments, for example: aug(image=image)")
         if self.replay_mode:
+            write_coverage("BasicTransform.__call__", "02:replay_mode")
             if self.applied_in_replay:
+                write_coverage("BasicTransform.__call__", "03:applied_in_replay")
                 return self.apply_with_params(self.params, **kwargs)
 
             return kwargs
 
         if (random.random() < self.p) or self.always_apply or force_apply:
+            write_coverage("BasicTransform.__call__", "04-06:should_apply")
             params = self.get_params()
 
             if self.targets_as_params:
+                write_coverage("BasicTransform.__call__", "07:targets_as_params")
                 assert all(key in kwargs for key in self.targets_as_params), "{} requires {}".format(
                     self.__class__.__name__, self.targets_as_params
                 )
                 targets_as_params = {k: kwargs[k] for k in self.targets_as_params}
+                if len(self.targets_as_params) > 0:
+                    write_coverage("BasicTransform.__call__", "08-09:targets_as_params_iteration")
                 params_dependent_on_targets = self.get_params_dependent_on_targets(targets_as_params)
                 params.update(params_dependent_on_targets)
             if self.deterministic:
+                write_coverage("BasicTransform.__call__", "10:deterministic")
                 if self.targets_as_params:
+                    write_coverage("BasicTransform.__call__", "11:deterministic_with_targets")
                     warn(
                         self.get_class_fullname() + " could work incorrectly in ReplayMode for other input data"
                         " because its' params depend on targets."
