@@ -45,6 +45,7 @@ __all__ = [
     "ChannelShuffle",
     "InvertImg",
     "ToGray",
+    "Dither",
     "ToRGB",
     "ToSepia",
     "JpegCompression",
@@ -2702,7 +2703,7 @@ class Dither(ImageOnlyTransform):
         if img.dtype == np.uint8:
             img = img.astype(np.float32)/255
         elif img.dtype != np.float32:
-            raise TypeError("Image must have float32 channel type")     
+            raise TypeError("Image must have float32 channel type")
         img = F.dither(img, self.nc)
         if original_dtype == np.uint8:
             img = np.floor(img.astype(np.uint8)*255)
