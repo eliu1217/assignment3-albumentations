@@ -2690,7 +2690,6 @@ class Dither(ImageOnlyTransform):
     """
 
     def __init__(self, nc: int = 2, always_apply: bool = False, p: float = 0.5):
-
         super().__init__(always_apply=always_apply, p=p)
         self.nc = nc
 
