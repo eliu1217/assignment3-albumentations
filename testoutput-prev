@@ -1,0 +1,264 @@
+============================= test session starts ==============================
+platform linux -- Python 3.10.9, pytest-7.2.1, pluggy-1.0.0
+rootdir: /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations
+collected 9891 items
+
+tests/test_augmentations.py ............................................ [  0%]
+........................................................................ [  1%]
+........................................................................ [  1%]
+........................................................................ [  2%]
+........................................................................ [  3%]
+........................................................................ [  4%]
+........................................................................ [  4%]
+........................................................................ [  5%]
+........................................................................ [  6%]
+........................................................................ [  6%]
+........................................................................ [  7%]
+.............................                                            [  8%]
+tests/test_bbox.py ..................................................... [  8%]
+.............                                                            [  8%]
+tests/test_core.py ..................................................... [  9%]
+..........................................                               [  9%]
+tests/test_functional.py ............................................... [ 10%]
+........................................................................ [ 10%]
+............................................                             [ 11%]
+tests/test_imgaug_imports.py ssssssssss..........s.                      [ 11%]
+tests/test_keypoint.py ................................................. [ 12%]
+...........................                                              [ 12%]
+tests/test_random.py .........                                           [ 12%]
+tests/test_serialization.py ............................................ [ 12%]
+........................................................................ [ 13%]
+........................................................................ [ 14%]
+........................................................................ [ 15%]
+........................................................................ [ 15%]
+........................................................................ [ 16%]
+........................................................................ [ 17%]
+........................................................................ [ 17%]
+........................................................................ [ 18%]
+........................................................................ [ 19%]
+........................................................................ [ 20%]
+........................................................................ [ 20%]
+........................................................................ [ 21%]
+........................................................................ [ 22%]
+........................................................................ [ 23%]
+........................................................................ [ 23%]
+........................................................................ [ 24%]
+........................................................................ [ 25%]
+........................................................................ [ 25%]
+........................................................................ [ 26%]
+........................................................................ [ 27%]
+........................................................................ [ 28%]
+........................................................................ [ 28%]
+........................................................................ [ 29%]
+........................................................................ [ 30%]
+........................................................................ [ 31%]
+........................................................................ [ 31%]
+........................................................................ [ 32%]
+........................................................................ [ 33%]
+........................................................................ [ 33%]
+........................................................................ [ 34%]
+........................................................................ [ 35%]
+........................................................................ [ 36%]
+........................................................................ [ 36%]
+........................................................................ [ 37%]
+........................................................................ [ 38%]
+........................................................................ [ 39%]
+........................................................................ [ 39%]
+........................................................................ [ 40%]
+........................................................................ [ 41%]
+........................................................................ [ 41%]
+........................................................................ [ 42%]
+........................................................................ [ 43%]
+........................................................................ [ 44%]
+........................................................................ [ 44%]
+........................................................................ [ 45%]
+........................................................................ [ 46%]
+........................................................................ [ 47%]
+........................................................................ [ 47%]
+........................................................................ [ 48%]
+........................................................................ [ 49%]
+........................................................................ [ 49%]
+........................................................................ [ 50%]
+........................................................................ [ 51%]
+........................................................................ [ 52%]
+........................................................................ [ 52%]
+........................................................................ [ 53%]
+........................................................................ [ 54%]
+........................................................................ [ 55%]
+........................................................................ [ 55%]
+........................................................................ [ 56%]
+........................................................................ [ 57%]
+........................................................................ [ 57%]
+........................................................................ [ 58%]
+........................................................................ [ 59%]
+........................................................................ [ 60%]
+........................................................................ [ 60%]
+........................................................................ [ 61%]
+........................................................................ [ 62%]
+........................................................................ [ 63%]
+........................................................................ [ 63%]
+........................................................................ [ 64%]
+........................................................................ [ 65%]
+........................................................................ [ 65%]
+........................................................................ [ 66%]
+........................................................................ [ 67%]
+........................................................................ [ 68%]
+........................................................................ [ 68%]
+........................................................................ [ 69%]
+........................................................................ [ 70%]
+........................................................................ [ 71%]
+........................................................................ [ 71%]
+........................................................................ [ 72%]
+........................................................................ [ 73%]
+........................................................................ [ 73%]
+........................................................................ [ 74%]
+........................................................................ [ 75%]
+........................................................................ [ 76%]
+........................................................................ [ 76%]
+........................................................................ [ 77%]
+........................................................................ [ 78%]
+........................................................................ [ 79%]
+........................................................................ [ 79%]
+........................................................................ [ 80%]
+........................................................................ [ 81%]
+........................................................................ [ 81%]
+........................................................................ [ 82%]
+........................................................................ [ 83%]
+........................................................................ [ 84%]
+........................................................................ [ 84%]
+........................................................................ [ 85%]
+........................................................................ [ 86%]
+........................................................................ [ 87%]
+........................................................................ [ 87%]
+........................................................................ [ 88%]
+........................................................................ [ 89%]
+........................................................................ [ 89%]
+........................................................................ [ 90%]
+........................................................................ [ 91%]
+........................................................................ [ 92%]
+........................................................................ [ 92%]
+...............................................................s.s...... [ 93%]
+....                                                                     [ 93%]
+tests/test_transforms.py ............................................... [ 94%]
+........................................................................ [ 94%]
+........................................................................ [ 95%]
+........................................................................ [ 96%]
+........................................................................ [ 97%]
+........................................................................ [ 97%]
+........................................................................ [ 98%]
+........................................................................ [ 99%]
+........................................................................ [ 99%]
+....                                                                     [100%]
+
+=============================== warnings summary ===============================
+tests/conftest.py:44
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/tests/conftest.py:44: UserWarning: Tests that require imgaug were skipped because this library is not installed.
+    warnings.warn(UserWarning("Tests that require imgaug were skipped because this library is not installed."))
+
+tests/conftest.py:36
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/tests/conftest.py:36: UserWarning: Tests that require PyTorch and torchvision were skipped because those libraries are not installed.
+    warnings.warn(
+
+../../../../../.local/lib/python3.10/site-packages/skimage/util/dtype.py:27
+  /home/daniel/.local/lib/python3.10/site-packages/skimage/util/dtype.py:27: DeprecationWarning: `np.bool8` is a deprecated alias for `np.bool_`.  (Deprecated NumPy 1.24)
+    np.bool8: (False, True),
+
+tests/test_augmentations.py: 11 warnings
+tests/test_serialization.py: 65 warnings
+tests/test_transforms.py: 2 warnings
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/augmentations/transforms.py:1692: UserWarning: Using default interpolation INTER_NEAREST, which is sub-optimal.Please specify interpolation mode for downscale and upscale explicitly.For additional information see this PR https://github.com/albumentations-team/albumentations/pull/584
+    warnings.warn(
+
+tests/test_augmentations.py: 8 warnings
+tests/test_serialization.py: 364 warnings
+tests/test_transforms.py: 40 warnings
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/augmentations/functional.py:1142: PendingDeprecationWarning: the matrix subclass is not the recommended way to represent matrices or deal with linear algebra (see https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html). Please adjust your code to use regular ndarray.
+    add_vect = np.matrix(m1) * np.matrix(m2)
+
+tests/test_augmentations.py: 4 warnings
+tests/test_serialization.py: 182 warnings
+tests/test_transforms.py: 20 warnings
+  /home/daniel/.local/lib/python3.10/site-packages/numpy/matrixlib/defmatrix.py:69: PendingDeprecationWarning: the matrix subclass is not the recommended way to represent matrices or deal with linear algebra (see https://docs.scipy.org/doc/numpy/user/numpy-for-matlab-users.html). Please adjust your code to use regular ndarray.
+    return matrix(data, dtype=dtype, copy=False)
+
+tests/test_augmentations.py: 6 warnings
+tests/test_serialization.py: 85 warnings
+tests/test_transforms.py: 1 warning
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/augmentations/transforms.py:1552: UserWarning: The image is already an RGB.
+    warnings.warn("The image is already an RGB.")
+
+tests/test_augmentations.py::test_image_only_augmentations_with_float_values[ImageCompression-params14]
+tests/test_augmentations.py::test_augmentations_wont_change_float_input[ImageCompression-params25]
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/augmentations/functional.py:487: UserWarning: Image compression augmentation is most effective with uint8 inputs, float32 is used as input.
+    warn(
+
+tests/test_augmentations.py: 62 warnings
+tests/test_serialization.py: 320 warnings
+tests/test_transforms.py: 4 warnings
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/augmentations/geometric/transforms.py:941: DeprecationWarning: Delaunay attribute 'vertices' is deprecated in favour of 'simplices' and will be removed in Scipy 1.11.0.
+    matrix.estimate(points_src[:, ::-1], points_dest[:, ::-1])
+
+tests/test_augmentations.py: 39 warnings
+tests/test_serialization.py: 384 warnings
+tests/test_transforms.py: 4 warnings
+  /home/daniel/.local/lib/python3.10/site-packages/skimage/transform/_warps.py:979: DeprecationWarning: Delaunay attribute 'vertices' is deprecated in favour of 'simplices' and will be removed in Scipy 1.11.0.
+    return inverse_map(*args, **map_args)
+
+tests/test_augmentations.py::test_augmentations_wont_change_shape_grayscale[HueSaturationValue-params21]
+tests/test_functional.py::test_shift_hsv_gray[img0]
+tests/test_functional.py::test_shift_hsv_gray[img1]
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/augmentations/functional.py:157: UserWarning: HueSaturationValue: hue_shift and sat_shift are not applicable to grayscale image. Set them to 0 or use RGB image
+    warn(
+
+tests/test_augmentations.py::test_augmentations_wont_change_shape_grayscale[ToGray-params50]
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/augmentations/transforms.py:1523: UserWarning: The image is already gray.
+    warnings.warn("The image is already gray.")
+
+tests/test_core.py::test_single_transform_compose[inner_transform4-compose_transform0]
+tests/test_core.py::test_single_transform_compose[inner_transform4-compose_transform1]
+tests/test_core.py::test_single_transform_compose[inner_transform4-compose_transform2]
+tests/test_core.py::test_single_transform_compose[inner_transform4-compose_transform3]
+tests/test_core.py::test_single_transform_compose[inner_transform4-compose_transform4]
+tests/test_core.py::test_single_transform_compose[inner_transform4-compose_transform5]
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/core/composition.py:384: UserWarning: Length of transforms is not equal to 2.
+    warnings.warn("Length of transforms is not equal to 2.")
+
+tests/test_functional.py::test_from_float_with_max_value_specified[4294967295.0]
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/tests/test_functional.py:483: RuntimeWarning: invalid value encountered in cast
+    expected = (img * max_value).astype(np.uint32)
+
+tests/test_functional.py::test_from_float_with_max_value_specified[4294967295.0]
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/augmentations/functional.py:968: RuntimeWarning: invalid value encountered in cast
+    return (img * max_value).astype(dtype)
+
+tests/test_serialization.py: 40 warnings
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/augmentations/transforms.py:311: FutureWarning: JpegCompression has been deprecated. Please use ImageCompression
+    warnings.warn(
+
+tests/test_serialization.py: 40 warnings
+tests/test_transforms.py: 2 warnings
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/augmentations/blur/transforms.py:184: UserWarning: blur_limit and sigma_limit minimum value can not be both equal to 0. blur_limit minimum value changed to 3.
+    warnings.warn(
+
+tests/test_serialization.py: 40 warnings
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/augmentations/dropout/cutout.py:49: FutureWarning: Cutout has been deprecated. Please use CoarseDropout
+    warnings.warn(
+
+tests/test_serialization.py: 40 warnings
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/augmentations/transforms.py:1258: FutureWarning: This class has been deprecated. Please use RandomBrightnessContrast
+    warnings.warn(
+
+tests/test_serialization.py: 40 warnings
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/augmentations/transforms.py:1284: FutureWarning: RandomContrast has been deprecated. Please use RandomBrightnessContrast
+    warnings.warn(
+
+tests/test_serialization.py: 32 warnings
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/augmentations/geometric/functional.py:698: UserWarning: Bi-quadratic interpolation behavior has changed due to a bug in the implementation of scikit-image. The new version now serves as a wrapper around SciPy's interpolation functions, which itself is not verified to be a correct implementation. Until skimage's implementation is fixed, we recommend to use bi-linear or bi-cubic interpolation instead.
+    return skimage.transform.warp(
+
+tests/test_serialization.py: 10 warnings
+  /home/daniel/Documents/kth/year-4/dd2480/assignment3-albumentations/albumentations/core/serialization.py:166: DeprecationWarning: lambda_transforms argument is deprecated, please use 'nonserializable'
+    warnings.warn("lambda_transforms argument is deprecated, please use 'nonserializable'", DeprecationWarning)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+========= 9878 passed, 13 skipped, 1862 warnings in 127.39s (0:02:07) ==========
