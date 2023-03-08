@@ -1404,3 +1404,30 @@ def spatter(
         raise ValueError("Unsupported spatter mode: " + str(mode))
 
     return img * 255
+
+def random_grayscale_erasing(img, probability, sl, sh, r1):
+    """Randomly selects a rectangle region in an image and turn those pixels into grayscale.
+
+    Args:
+        img: Image to transform.
+        probability: The probability that the transformation will happen.
+        sl: Minimum proportion of erased area against input image.
+        sh: Maximum proportion of erased area against input image.
+        r1: Minimum aspect ratio of erased area.
+    """
+
+    # Check if a random float number between 0 and 1 is higher than the selected probability
+    # If it is, return image without transforming it
+
+    # Get width, height and area of image
+
+    for _ in range(100):
+        # Calculate target area and aspect ratio using sl, sh and r1
+
+        if w < width and h < height:
+
+            # Grayscale erasing
+
+            return img
+
+    return img
