@@ -2678,3 +2678,51 @@ class Spatter(ImageOnlyTransform):
 
     def get_transform_init_args_names(self) -> Tuple[str, str, str, str, str, str, str]:
         return "mean", "std", "gauss_sigma", "intensity", "cutout_threshold", "mode", "color"
+
+
+class RandomGrayscale(ImageOnlyTransform):
+    """
+    Randomly selects a rectangle region in an image and use grayscale image instead of its pixels.
+
+    Args:
+        sl: Minimum proportion of erased area against input image, default = 0.02
+        sh: Maximum proportion of erased area against input image, default = 0.4
+        r1: Minimum aspect ratio of erased area, default = 0.3
+
+    Targets:
+        image
+
+    Image types:
+        uint8, float32
+
+    References :
+        https://github.com/layumi/Person_reID_baseline_pytorch/blob/84360b7b964dc4b9746dd89837333ed34c1208c5/random_erasing.py#L57
+        'Local Grayscale Transfomation' by Yunpeng Gong, https://arxiv.org/pdf/2101.08533.pdf
+    """
+
+    def __init__(self, sl: float = 0.02, sh: float = 0.4, r1: float = 0.3, always_apply: bool = False, p: float = 0.5):
+        super().__init__(always_apply=always_apply, p=p)
+        self.sl = sl
+        self.sh = sh
+        self.r1 = r1
+
+    def apply(self, img, **params):
+        original_dtype = img.dtype
+
+        if img.dtype == np.uint8:
+            img = img.astype(np.float32) / 255
+        elif img.dtype != np.float32:
+            raise TypeError("Image must have float32 channel type")
+        if (self.sl < 0 or self.sl > 1) or (self.sh < 0 or self.sh > 1) or (self.r1 < 0 or self.r1 > 1):
+            raise ValueError ("sl, sh and r1 values should be between 0 and 1")
+
+        img = F.random_grayscale_erasing(img, self.sl, self.sh, self.r1)
+
+        if original_dtype == np.uint8:
+            img *= 255
+            img = img.astype(np.uint8)
+
+        return img
+    
+    def get_transform_init_args_names(self) -> Tuple[str, str, str]:
+        return "sl", "sh", "r1"
